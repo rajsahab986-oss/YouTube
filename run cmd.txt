@@ -1,2 +1,2 @@
-gunicorn app:app & python3 modules/main.py
-python keep_alive.py
+gunicorn app:app & python3 main.py
+python youtube_downloader.py
