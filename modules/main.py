@@ -459,7 +459,7 @@ async def txt_handler(bot: Client, m: Message):
         CR = raw_text3
         
        
-    await editable.edit("Now send the **Thumb url**\n**Eg :** ``\n\nor Send `no`")
+    await editable.edit("Now send the **Thumb url**\n**Eg :** `https://graph.org/file/f03db89ddae75d492a1f3-6045b116c45e38d965.jpg`\n\nor Send `no`")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
