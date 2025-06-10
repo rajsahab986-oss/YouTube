@@ -504,7 +504,7 @@ async def txt_handler(bot: Client, m: Message):
                 elif 'Key-Pair-Id' in url:
                     url = None
                     
-                elif 'main.m3u8' in url:
+                elif '.m3u8' in url:
                     q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
                     x = url.split("/")[5]
                     x = url.replace(x, "")
