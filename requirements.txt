@@ -16,7 +16,7 @@ urllib3==2.0.3
 websockets==11.0.3
 beautifulsoup4
 cloudscraper
-yt-dlp
+yt-dlp=2024.06.10
 motor
 aiohttp
 aiofiles
