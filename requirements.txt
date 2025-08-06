@@ -25,7 +25,7 @@ ffmpeg==1.4
 umongo==3.1.0
 speedtest-cli
 Flask==1.1.2
-gunicorn
+gunicorn==20.1.0
 fastapi
 uvicorn
 Jinja2==3.0.3
