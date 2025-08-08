@@ -626,3 +626,53 @@ async def txt_handler(bot: Client, m: Message):
 bot.run()
 if __name__ == "__main__":
     asyncio.run(main())
+
+import re
+import os
+from telegram import Update
+from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")  # BOT_TOKEN environment variable se lega
+
+def extract_m3u8_from_text(text):
+    """Find all .m3u8 URLs in text."""
+    pattern = r'https?://[^\s"\']+?\.m3u8'
+    return re.findall(pattern, text)
+
+async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message.document and update.message.document.file_name.endswith(".txt"):
+        file = await context.bot.get_file(update.message.document.file_id)
+        file_path = "input.txt"
+        await file.download_to_drive(file_path)
+
+        with open(file_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        links = extract_m3u8_from_text(content)
+
+        if links:
+            output_file = "output.txt"
+            with open(output_file, "w", encoding="utf-8") as f:
+                for link in sorted(set(links)):
+                    f.write(link + "\n")
+
+            await update.message.reply_document(document=open(output_file, "rb"), filename="m3u8_links.txt")
+            os.remove(output_file)
+        else:
+            await update.message.reply_text("Koi .m3u8 link nahi mila.")
+
+        os.remove(file_path)
+    else:
+        await update.message.reply_text("Sirf .txt file bheje jisme links ho.")
+
+if __name__ == "__main__":
+    token = BOT_TOKEN
+    if not token:
+        print("[ERROR] BOT_TOKEN environment variable set nahi hai!")
+        exit(1)
+
+    app = ApplicationBuilder().token(token).build()
+    app.add_handler(MessageHandler(filters.Document.ALL, handle_file))
+
+    print("Bot chal raha hai...")
+    app.run_polling()
