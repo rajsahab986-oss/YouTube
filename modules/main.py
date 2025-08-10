@@ -625,6 +625,9 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/", "")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
         
+            if "https//appx1.arvind.eu.org/" in url:
+                url = url.replace("https://appx1.arvind.eu.org/","")
+                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
     
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
