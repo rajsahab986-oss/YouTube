@@ -620,10 +620,6 @@ async def txt_handler(bot: Client, m: Message):
                 else:
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
-                    
-                if "https://appx-transcoded-videos-mcdn.akamai.net.in/videos/rgacademyrajasthan-data/" in url:
-                url = url.replace("https://appx-transcoded-videos-mcdn.akamai.net.in/videos/rgacademyrajasthan-data/", "")
-                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
         
                 if "https://appx-transcoded-videos-mcdn.akamai.net.in/videos/neetkakajee-data/" in url:
                 url = url.replace("https://appx-transcoded-videos-mcdn.akamai.net.in/videos/neetkakajee-data/", "")
