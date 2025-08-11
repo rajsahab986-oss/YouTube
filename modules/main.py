@@ -631,9 +631,14 @@ async def txt_handler(bot: Client, m: Message):
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
         
-            if "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
-                url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/", "")
-                cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
+               if "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
+                   q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
+                   x = url.split("/")[5]
+                   x = url.replace(x, "")
+                   url = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).replace(q+"/", x)
+                    
+                    
+        
         
             if "https//appx1.arvind.eu.org/" in url:
                 url = url.replace("https://appx1.arvind.eu.org/","")
