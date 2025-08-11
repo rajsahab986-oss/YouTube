@@ -622,7 +622,7 @@ async def txt_handler(bot: Client, m: Message):
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
         
             if "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
-                url = url.replace("https://appx1.arvind.eu.org/","")
+                url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/","")
                 q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
                 x = url.split("/")[5]
                 x = url.replace(x, "")
