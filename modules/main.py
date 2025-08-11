@@ -630,10 +630,7 @@ async def txt_handler(bot: Client, m: Message):
                 
             if "https//appx1.arvind.eu.org/" in url:
                 url = url.replace("https://appx1.arvind.eu.org/","")
-                q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
-                x = url.split("/")[5]
-                x = url.replace(x, "")
-                url = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).replace(q+"/", x)
+                cmd = yt-dlp --hls-prefer-ffmpeg -o "%(title)s.%(ext)s" "https://appx1.arvind.eu.org/..."
                 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
