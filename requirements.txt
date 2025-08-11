@@ -40,4 +40,3 @@ m3u8
 bs4
 pytube
 python-telegram-bot==20.3
---downloader aria2c
