@@ -459,11 +459,11 @@ async def txt_handler(bot: Client, m: Message):
         await m.reply_text("Invalid file input.")
         os.remove(x)
         return
-
-         def sanitize_filename(filename):
-             filename = re.sub(r'[\\/*?:"<>|&❣️]', '_', filename)
-              filename = re.sub(r'\s+', ' ', filename).strip()
-    return filename
+        
+       def sanitize_filename(filename):
+       filename = re.sub(r'[\\/*?:"<>|&❣️]', '_', filename)
+       filename = re.sub(r'\s+', ' ', filename).strip()
+       return filename
 
      downloaded_path = await message.download()
      safe_name = sanitize_filename(os.path.basename(downloaded_path))
