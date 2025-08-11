@@ -460,11 +460,6 @@ async def txt_handler(bot: Client, m: Message):
         os.remove(x)
         return
 
-     downloaded_path = await message.download()
-     safe_name = sanitize_filename(os.path.basename(downloaded_path))
-     safe_path = os.path.join(os.path.dirname(downloaded_path), safe_name)
-     os.rename(downloaded_path, safe_path)
-
     await editable.edit(f"Total links found are **{len(links)}**\n\nSend From where you want to download initial is **1**")
     input0: Message = await bot.listen(editable.chat.id)
     raw_text = input0.text
