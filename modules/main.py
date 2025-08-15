@@ -555,7 +555,7 @@ async def txt_handler(bot: Client, m: Message):
                     url = None
                     
                 elif '.m3u8' in url:
-                    q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0],headers={'x-access-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEwMDU0OCIsImVtYWlsIjoia295ZWxwcmFtYW5pazgwOUBnbWFpbC5jb20iLCJ0aW1lc3RhbXAiOjE3NTA4MjU3OTksInRlbmFudFR5cGUiOiJ1c2VyIiwidGVuYW50TmFtZSI6Im5lZXRrYWthamVlX2RiIiwidGVuYW50SWQiOiIiLCJkaXNwb3NhYmxlIjpmYWxzZX0.yhmhh37bA7L2QZqKzVbqA6zci5PI9Sztdt9gEmNb4SE'}).json()['url']
+                    q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
                     x = url.split("/")[5]
                     x = url.replace(x, "")
                     url = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).replace(q+"/", x)
