@@ -555,7 +555,7 @@ async def txt_handler(bot: Client, m: Message):
                     url = None
                     
                 elif '.m3u8' in url:
-                    q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0]
+                    q = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).split("/")[0],headers={'x-access-token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEwMDU0OCIsImVtYWlsIjoia295ZWxwcmFtYW5pazgwOUBnbWFpbC5jb20iLCJ0aW1lc3RhbXAiOjE3NTA4MjU3OTksInRlbmFudFR5cGUiOiJ1c2VyIiwidGVuYW50TmFtZSI6Im5lZXRrYWthamVlX2RiIiwidGVuYW50SWQiOiIiLCJkaXNwb3NhYmxlIjpmYWxzZX0.yhmhh37bA7L2QZqKzVbqA6zci5PI9Sztdt9gEmNb4SE'}).json()['url']
                     x = url.split("/")[5]
                     x = url.replace(x, "")
                     url = ((m3u8.loads(requests.get(url).text)).data['playlists'][1]['uri']).replace(q+"/", x)
@@ -600,15 +600,15 @@ async def txt_handler(bot: Client, m: Message):
 
                 url = clean_url
 
-            elif "https://static-db.classx.co.in/" in url:
+            elif "https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/" in url:
                 if "*" in url:
-                    base_url, key = url.split("*", 1)
-                    base_url = base_url.split("?")[0]
-                    base_url = base_url.replace("https://static-db.classx.co.in", "https://appxcontent.kaxa.in")
-                    url = f"{base_url}*{key}"
+                    url, key = url.split("*", 1)
+                    url = url.split("?")[0]
+                    url = url.replace("https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/")
+                    url = f"{url}*{key}"
                 else:
-                    base_url = url.split("?")[0]
-                    url = base_url.replace("https://static-db.classx.co.in", "https://appxcontent.kaxa.in")
+                    url = url.split("?")[0]
+                    url = url.replace("https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/")
 
 
             elif "https://static-db-v2.classx.co.in/" in url:
