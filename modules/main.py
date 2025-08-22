@@ -600,16 +600,16 @@ async def txt_handler(bot: Client, m: Message):
 
                 url = clean_url
 
-            elif "https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/" in url:
-                if "*" in url:
-                    url, key = url.split("*", 1)
+            elif "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
+                if "?" in url:
+                    url, key = url.split("?", 1)
                     url = url.split("?")[0]
-                    url = url.replace("https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/")
+                    url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/")
                     url = f"{url}*{key}"
                 else:
                     url = url.split("?")[0]
-                    url = url.replace("https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/")
-
+                    url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/")
+                    cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
 
             elif "https://static-db-v2.classx.co.in/" in url:
                 if "*" in url:
@@ -621,8 +621,8 @@ async def txt_handler(bot: Client, m: Message):
                     base_url = url.split("?")[0]
                     url = base_url.replace("https://static-db-v2.classx.co.in", "https://appx-content-v2.classx.co.in")
         
-            if "https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/" in url:
-                url = url.replace("https://transcoded-videos-v2.classx.co.in/videos/neetkakajee-data/","")
+            if "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
+                url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/","")
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
                 
             if "https//appx1.arvind.eu.org/" in url:
