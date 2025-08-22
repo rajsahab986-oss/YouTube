@@ -601,8 +601,8 @@ async def txt_handler(bot: Client, m: Message):
                 url = clean_url
 
             elif "https://transcoded-videos.classx.co.in/videos/neetkakajee-data/" in url:
-                if "?" in url:
-                    url, key = url.split("*", 1)
+                if ".m3u8?" in url:
+                    url, key = url.split("*", 0)
                     url = url.split("?")[1]
                     url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/")
                     url = f"{url}*{key}"
