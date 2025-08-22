@@ -607,7 +607,7 @@ async def txt_handler(bot: Client, m: Message):
                     url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/")
                     url = f"{url}*{key}"
                 else:
-                    url = url.split("?")[0]
+                    url = url.split("?")[1]
                     url = url.replace("https://transcoded-videos.classx.co.in/videos/neetkakajee-data/")
                     cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
 
