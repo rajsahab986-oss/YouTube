@@ -675,7 +675,7 @@ async def txt_handler(bot: Client, m: Message):
                 )
                 continue
 
-    today = datetime.now().strftime("%d-%m-%Y")
+           today = datetime.now().strftime("%d-%m-%Y")
         
     except Exception as e:
         await m.reply_text(e)
