@@ -675,11 +675,11 @@ async def txt_handler(bot: Client, m: Message):
                 )
                 continue
 
+        date = datetime.now().strftime("%d-%m-%Y")
         
     except Exception as e:
-           date = datetime.now().strftime("%d-%m-%Y")
         await m.reply_text(e)
-    await m.reply_text("🌹SUCCESSFULLY DONE🌹\n\n ALL DONE TILL » {date}\n\n GIVE REACTION ✨\n\n YOUR'S CAPTAIN ⚡️")
+    await m.reply_text(f"🌹SUCCESSFULLY DONE🌹\n\n ALL DONE TILL » ({date})\n\n GIVE REACTION ✨\n\n YOUR'S CAPTAIN ⚡️")
 
 
 
