@@ -678,7 +678,7 @@ async def txt_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(e)
-    await m.reply_text("🌹SUCCESSFULLY DONE🌹/n ALL DONE TILL (today)/n/n GIVE REACTION ✨")
+    await m.reply_text("🌹SUCCESSFULLY DONE🌹\n\n ALL DONE TILL '{today}'\n\n GIVE REACTION ✨")
 
 
 
