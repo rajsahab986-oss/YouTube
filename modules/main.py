@@ -28,7 +28,6 @@ from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-today = datetime.now().strftime("%d-%m-%Y")
 # Initialize the bot
 bot = Client(
     "bot",
@@ -676,6 +675,8 @@ async def txt_handler(bot: Client, m: Message):
                 )
                 continue
 
+    today = datetime.now().strftime("%d-%m-%Y")
+        
     except Exception as e:
         await m.reply_text(e)
     await m.reply_text("🌹SUCCESSFULLY DONE🌹\n\n ALL DONE TILL {today}\n\n GIVE REACTION ✨\n\n YOUR'S CAPTAIN ⚡️")
