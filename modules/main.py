@@ -160,7 +160,7 @@ async def restart_handler(_, m):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@bot.on_message(filters.command(["txt"]) )
+@bot.on_message(filters.command(["/shadow"]) )
 async def txt_handler(bot: Client, m: Message):
     editable = await m.reply_text(f"**🔹Hi I am Poweful TXT Downloader📥 Bot.**\n🔹**Send me the TXT file and wait.**")
     input: Message = await bot.listen(editable.chat.id)
@@ -221,20 +221,20 @@ async def txt_handler(bot: Client, m: Message):
     except Exception:
             res = "UN"
     
-    await editable.edit("**Enter Your Name or send 'de' for use default.\n Eg :𝚂𝚑𝚊𝚍𝚘𝚠 **")
+    await editable.edit("**Enter Your Name or send 'd' for use default.\n Eg :𝚂𝚑𝚊𝚍𝚘𝚠 **")
     input3: Message = await bot.listen(editable.chat.id)
     raw_text3 = input3.text
     await input3.delete(True)
-    if raw_text3 == 'de':
+    if raw_text3 == 'd':
         CR = credit
     else:
         CR = raw_text3
         
-    await editable.edit("**Enter Your PW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋  or send 'unknown' for use default**")
+    await editable.edit("**Enter Your PW/CP/CW Token For 𝐌𝐏𝐃 𝐔𝐑𝐋  or send 'd' for use default**")
     input4: Message = await bot.listen(editable.chat.id)
     raw_text4 = input4.text
     await input4.delete(True)
-    if raw_text4 == 'unknown':
+    if raw_text4 == 'd':
         MR = token
     else:
         MR = raw_text4
